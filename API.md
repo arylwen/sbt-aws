@@ -276,6 +276,174 @@ Only set when the IBilling webhookFunction is defined.
 ---
 
 
+### CodeBuildScriptJob <a name="CodeBuildScriptJob" id="@cdklabs/sbt-aws.CodeBuildScriptJob"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+Provides a ScriptJob to execute arbitrary bash code.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer"></a>
+
+```typescript
+import { CodeBuildScriptJob } from '@cdklabs/sbt-aws'
+
+new CodeBuildScriptJob(scope: Construct, id: string, props: ScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.CodeBuildScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct"></a>
+
+```typescript
+import { CodeBuildScriptJob } from '@cdklabs/sbt-aws'
+
+CodeBuildScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `codebuildProject`<sup>Required</sup> <a name="codebuildProject" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.codebuildProject"></a>
+
+```typescript
+public readonly codebuildProject: Project;
+```
+
+- *Type:* aws-cdk-lib.aws_codebuild.Project
+
+The codebuildProject used to implement this ScriptJob.
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine used to implement this ScriptJob orchestration.
+
+---
+
+##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.environmentVariablesToOutgoingEvent"></a>
+
+```typescript
+public readonly environmentVariablesToOutgoingEvent: string[];
+```
+
+- *Type:* string[]
+
+The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### CognitoAuth <a name="CognitoAuth" id="@cdklabs/sbt-aws.CognitoAuth"></a>
 
 - *Implements:* <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
@@ -1213,6 +1381,158 @@ The EventManager instance that allows connecting to events flowing between the C
 ---
 
 
+### DeprovisioningLambdaScriptJob <a name="DeprovisioningLambdaScriptJob" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob"></a>
+
+Provides a DeprovisioningLambdaScriptJob to execute arbitrary bash code.
+
+This is a simple wrapper around LambdaScriptJob that reduces some of the parameters
+that need to be configured.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer"></a>
+
+```typescript
+import { DeprovisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new DeprovisioningLambdaScriptJob(scope: Construct, id: string, props: TenantLifecycleLambdaScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { DeprovisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+DeprovisioningLambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### DeprovisioningScriptJob <a name="DeprovisioningScriptJob" id="@cdklabs/sbt-aws.DeprovisioningScriptJob"></a>
 
 Provides a DeprovisioningScriptJob to execute arbitrary bash code.
@@ -1302,10 +1622,10 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 
 ---
 
@@ -1333,30 +1653,6 @@ The codebuildProject used to implement this ScriptJob.
 
 ---
 
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
 ##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.provisioningStateMachine"></a>
 
 ```typescript
@@ -1378,6 +1674,30 @@ public readonly environmentVariablesToOutgoingEvent: string[];
 - *Type:* string[]
 
 The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 
@@ -1765,6 +2085,155 @@ The DynamoDB table containing the aggregated data.
 ---
 
 
+### LambdaScriptJob <a name="LambdaScriptJob" id="@cdklabs/sbt-aws.LambdaScriptJob"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer"></a>
+
+```typescript
+import { LambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new LambdaScriptJob(scope: Construct, id: string, props: ScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.LambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.LambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { LambdaScriptJob } from '@cdklabs/sbt-aws'
+
+LambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.LambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.LambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.LambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.LambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.LambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.LambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### MeteringProvider <a name="MeteringProvider" id="@cdklabs/sbt-aws.MeteringProvider"></a>
 
 Represents a Metering Provider that handles metering-related operations and connects the concrete IMetering implementation (provided via props.metering) to the control plane.
@@ -1869,6 +2338,158 @@ The tree node.
 ---
 
 
+### ProvisioningLambdaScriptJob <a name="ProvisioningLambdaScriptJob" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob"></a>
+
+Provides a ProvisioningLambdaScriptJob to execute arbitrary bash code.
+
+This is a simple wrapper around LambdaScriptJob that reduces some of the parameters
+that need to be configured.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer"></a>
+
+```typescript
+import { ProvisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new ProvisioningLambdaScriptJob(scope: Construct, id: string, props: TenantLifecycleLambdaScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { ProvisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+ProvisioningLambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### ProvisioningScriptJob <a name="ProvisioningScriptJob" id="@cdklabs/sbt-aws.ProvisioningScriptJob"></a>
 
 Provides a ProvisioningScriptJob to execute arbitrary bash code.
@@ -1958,10 +2579,10 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 
 ---
 
@@ -1989,30 +2610,6 @@ The codebuildProject used to implement this ScriptJob.
 
 ---
 
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
 ##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.provisioningStateMachine"></a>
 
 ```typescript
@@ -2034,6 +2631,30 @@ public readonly environmentVariablesToOutgoingEvent: string[];
 - *Type:* string[]
 
 The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 
@@ -2137,172 +2758,6 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
-
----
-
-
-### ScriptJob <a name="ScriptJob" id="@cdklabs/sbt-aws.ScriptJob"></a>
-
-Provides a ScriptJob to execute arbitrary bash code.
-
-#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.ScriptJob.Initializer"></a>
-
-```typescript
-import { ScriptJob } from '@cdklabs/sbt-aws'
-
-new ScriptJob(scope: Construct, id: string, props: ScriptJobProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
-
----
-
-##### `toString` <a name="toString" id="@cdklabs/sbt-aws.ScriptJob.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.ScriptJob.isConstruct"></a>
-
-```typescript
-import { ScriptJob } from '@cdklabs/sbt-aws'
-
-ScriptJob.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.ScriptJob.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.ScriptJob.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `codebuildProject`<sup>Required</sup> <a name="codebuildProject" id="@cdklabs/sbt-aws.ScriptJob.property.codebuildProject"></a>
-
-```typescript
-public readonly codebuildProject: Project;
-```
-
-- *Type:* aws-cdk-lib.aws_codebuild.Project
-
-The codebuildProject used to implement this ScriptJob.
-
----
-
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
-##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ScriptJob.property.provisioningStateMachine"></a>
-
-```typescript
-public readonly provisioningStateMachine: StateMachine;
-```
-
-- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
-
-The StateMachine used to implement this ScriptJob orchestration.
-
----
-
-##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.ScriptJob.property.environmentVariablesToOutgoingEvent"></a>
-
-```typescript
-public readonly environmentVariablesToOutgoingEvent: string[];
-```
-
-- *Type:* string[]
-
-The environment variables to export into the outgoing event once the ScriptJob has finished.
 
 ---
 
@@ -3539,7 +3994,7 @@ const coreApplicationPlaneProps: CoreApplicationPlaneProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.eventManager">eventManager</a></code> | <code><a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a></code> | The event manager instance. |
-| <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs">scriptJobs</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJob">ScriptJob</a>[]</code> | The list of JobRunners. |
+| <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs">scriptJobs</a></code> | <code><a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>[]</code> | The list of JobRunners. |
 
 ---
 
@@ -3560,10 +4015,10 @@ This is used to trigger scriptJobs.
 ##### `scriptJobs`<sup>Optional</sup> <a name="scriptJobs" id="@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs"></a>
 
 ```typescript
-public readonly scriptJobs: ScriptJob[];
+public readonly scriptJobs: IScriptJob[];
 ```
 
-- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJob">ScriptJob</a>[]
+- *Type:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>[]
 
 The list of JobRunners.
 
@@ -4252,6 +4707,113 @@ public readonly tenantManagementTable: TenantManagementTable;
 ```
 
 - *Type:* <a href="#@cdklabs/sbt-aws.TenantManagementTable">TenantManagementTable</a>
+
+---
+
+### TenantLifecycleLambdaScriptJobProps <a name="TenantLifecycleLambdaScriptJobProps" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps"></a>
+
+Encapsulates the list of properties for ScriptJobs that handle lifecycle management for tenants.
+
+#### Initializer <a name="Initializer" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.Initializer"></a>
+
+```typescript
+import { TenantLifecycleLambdaScriptJobProps } from '@cdklabs/sbt-aws'
+
+const tenantLifecycleLambdaScriptJobProps: TenantLifecycleLambdaScriptJobProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.eventManager">eventManager</a></code> | <code><a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a></code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.permissions">permissions</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.script">script</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentJSONVariablesFromIncomingEvent">environmentJSONVariablesFromIncomingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentStringVariablesFromIncomingEvent">environmentStringVariablesFromIncomingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.postScript">postScript</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.scriptEnvironmentVariables">scriptEnvironmentVariables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+
+---
+
+##### `eventManager`<sup>Required</sup> <a name="eventManager" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.eventManager"></a>
+
+```typescript
+public readonly eventManager: IEventManager;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a>
+
+---
+
+##### `permissions`<sup>Required</sup> <a name="permissions" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.permissions"></a>
+
+```typescript
+public readonly permissions: PolicyDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
+
+---
+
+##### `script`<sup>Required</sup> <a name="script" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.script"></a>
+
+```typescript
+public readonly script: string;
+```
+
+- *Type:* string
+
+---
+
+##### `environmentJSONVariablesFromIncomingEvent`<sup>Optional</sup> <a name="environmentJSONVariablesFromIncomingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentJSONVariablesFromIncomingEvent"></a>
+
+```typescript
+public readonly environmentJSONVariablesFromIncomingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `environmentStringVariablesFromIncomingEvent`<sup>Optional</sup> <a name="environmentStringVariablesFromIncomingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentStringVariablesFromIncomingEvent"></a>
+
+```typescript
+public readonly environmentStringVariablesFromIncomingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentVariablesToOutgoingEvent"></a>
+
+```typescript
+public readonly environmentVariablesToOutgoingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `postScript`<sup>Optional</sup> <a name="postScript" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.postScript"></a>
+
+```typescript
+public readonly postScript: string;
+```
+
+- *Type:* string
+
+---
+
+##### `scriptEnvironmentVariables`<sup>Optional</sup> <a name="scriptEnvironmentVariables" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.scriptEnvironmentVariables"></a>
+
+```typescript
+public readonly scriptEnvironmentVariables: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 ---
 
@@ -5649,6 +6211,44 @@ public readonly scope: string;
 ```
 
 - *Type:* string
+
+---
+
+### IScriptJob <a name="IScriptJob" id="@cdklabs/sbt-aws.IScriptJob"></a>
+
+- *Implemented By:* <a href="#@cdklabs/sbt-aws.CodeBuildScriptJob">CodeBuildScriptJob</a>, <a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob">DeprovisioningLambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob">DeprovisioningScriptJob</a>, <a href="#@cdklabs/sbt-aws.LambdaScriptJob">LambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob">ProvisioningLambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.ProvisioningScriptJob">ProvisioningScriptJob</a>, <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.IScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.IScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.IScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.IScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 

@@ -3,7 +3,7 @@
 
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
-import { ScriptJob, ScriptJobProps } from './script-job';
+import { ScriptJobProps, CodeBuildScriptJob } from './script-job';
 import { DetailType, IEventManager } from '../utils';
 
 /**
@@ -63,7 +63,7 @@ export interface TenantLifecycleScriptJobProps {
  * This is a simple wrapper around ScriptJob that reduces some of the parameters
  * that need to be configured.
  */
-export class ProvisioningScriptJob extends ScriptJob {
+export class ProvisioningScriptJob extends CodeBuildScriptJob {
   constructor(scope: Construct, id: string, props: TenantLifecycleScriptJobProps) {
     const scriptJobProps: ScriptJobProps = {
       ...props,
@@ -86,7 +86,7 @@ export class ProvisioningScriptJob extends ScriptJob {
  * This is a simple wrapper around ScriptJob that reduces some of the parameters
  * that need to be configured.
  */
-export class DeprovisioningScriptJob extends ScriptJob {
+export class DeprovisioningScriptJob extends CodeBuildScriptJob {
   constructor(scope: Construct, id: string, props: TenantLifecycleScriptJobProps) {
     const scriptJobProps: ScriptJobProps = {
       ...props,

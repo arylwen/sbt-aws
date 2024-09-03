@@ -111,6 +111,7 @@ export class TenantManagementService extends Construct {
     generateRoutes(props.api, routes, props.authorizer);
 
     const connection = new events.Connection(this, 'connection', {
+      connectionName: 'control-plane-eventbridge-connection',
       authorization: events.Authorization.oauth({
         authorizationEndpoint: props.auth.tokenEndpoint,
         clientId: props.auth.machineClientId,
@@ -126,6 +127,7 @@ export class TenantManagementService extends Construct {
     });
 
     const putTenantAPIDestination = new events.ApiDestination(this, 'destination', {
+      apiDestinationName: 'control-plane-api-destination',
       connection: connection,
       httpMethod: events.HttpMethod.PUT,
       endpoint: `${props.api.url}${tenantsPath.substring(1)}/*`, // skip the first '/' in tenantIdPath

@@ -5,7 +5,8 @@ import boto3
 import botocore
 from crhelper import CfnResource
 cognito = boto3.client('cognito-idp')
-helper = CfnResource()
+#GC TODO add an env variable for setting ssl_verify; needed for localstack
+helper = CfnResource(ssl_verify=False)
 
 
 @helper.create
