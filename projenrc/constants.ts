@@ -37,7 +37,7 @@ export const GIT_IGNORE_PATTERNS: string[] = [
   '.vscode',
   'cdk.out',
   '.env',
-  'docker-volume'
+  'docker-volume',
 ];
 
 export const NPM_IGNORE_PATTERNS: string[] = [
