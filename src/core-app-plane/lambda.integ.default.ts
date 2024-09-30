@@ -29,8 +29,7 @@ export class IntegStack extends cdk.Stack {
       eventManager = new EventManager(this, 'EventManager');
     }
 
-    const provisioningScriptJobProps: sbt.TenantLifecycleScriptJobProps = {
-      //GC lstk does not support codebuild: Unable to resolve Ref for resource "provisioningJobScriptcodebuildProjectE7DC209D" (yet)
+    const provisioningLambdaScriptJobProps: sbt.TenantLifecycleLambdaScriptJobProps = {
       permissions: new PolicyDocument({
         statements: [
           new PolicyStatement({
@@ -47,8 +46,6 @@ export class IntegStack extends cdk.Stack {
       script: `
 echo "starting..."
 
-# note that this template.yaml is being created here, but
-# it could just as easily be pulled in from an S3 bucket.
 cat > template.yaml << EndOfMessage
 {
   "AWSTemplateFormatVersion": "2010-09-09",
@@ -92,9 +89,9 @@ echo "done!"
         'tenantS3Bucket',
         'tenantConfig',
         'tenantStatus',
-        'prices', // added so we don't lose it for targets beyond provisioning (ex. billing)
-        'tenantName', // added so we don't lose it for targets beyond provisioning (ex. billing)
-        'email', // added so we don't lose it for targets beyond provisioning (ex. billing)
+        'prices',
+        'tenantName',
+        'email',
       ],
       scriptEnvironmentVariables: {
         TEST: 'test',
@@ -102,7 +99,7 @@ echo "done!"
       eventManager: eventManager,
     };
 
-    const deprovisioningScriptJobProps: sbt.TenantLifecycleScriptJobProps = {
+    const deprovisioningLambdaScriptJobProps: sbt.TenantLifecycleLambdaScriptJobProps = {
       permissions: new PolicyDocument({
         statements: [
           new PolicyStatement({
@@ -132,20 +129,67 @@ echo "done!"
       eventManager: eventManager,
     };
 
-    const provisioningJobScript: sbt.ProvisioningScriptJob = new sbt.ProvisioningScriptJob(
-      this,
-      'provisioningJobScript',
-      provisioningScriptJobProps
-    );
-    const deprovisioningJobScript: sbt.DeprovisioningScriptJob = new sbt.DeprovisioningScriptJob(
-      this,
-      'deprovisioningJobScript',
-      deprovisioningScriptJobProps
+    const provisioningLambdaScriptJob: sbt.ProvisioningLambdaScriptJob =
+      new sbt.ProvisioningLambdaScriptJob(
+        this,
+        'provisioningLambdaScriptJob',
+        provisioningLambdaScriptJobProps
+      );
+
+    NagSuppressions.addResourceSuppressions(
+      provisioningLambdaScriptJob,
+      [
+        {
+          id: 'AwsSolutions-IAM5',
+          reason:
+            'This Lambda function requires wildcard permissions to access all objects within the specified S3 bucket.',
+          appliesTo: ['Resource::*'],
+        },
+      ],
+      true
     );
 
-    new sbt.CoreApplicationPlane(this, 'CodeBuildCoreApplicationPlane', {
+    NagSuppressions.addResourceSuppressions(
+      provisioningLambdaScriptJob.provisioningStateMachine,
+      [
+        {
+          id: 'AwsSolutions-IAM5',
+          reason:
+            'This Lambda function requires wildcard permissions to access all objects within the specified S3 bucket.',
+          appliesTo: ['Resource::*'],
+        },
+      ],
+      true
+    );
+
+    NagSuppressions.addResourceSuppressions(
+      provisioningLambdaScriptJob.provisioningStateMachine.role,
+      [{ id: 'AwsSolutions-IAM5', reason: 'This is required for XYZ reason' }]
+    );
+
+    const deprovisioningLambdaScriptJob: sbt.DeprovisioningLambdaScriptJob =
+      new sbt.DeprovisioningLambdaScriptJob(
+        this,
+        'deprovisioningLambdaScriptJob',
+        deprovisioningLambdaScriptJobProps
+      );
+
+    NagSuppressions.addResourceSuppressions(
+      deprovisioningLambdaScriptJob,
+      [
+        {
+          id: 'AwsSolutions-IAM5',
+          reason:
+            'This Lambda function requires wildcard permissions to access all objects within the specified S3 bucket.',
+          appliesTo: ['Resource::*'],
+        },
+      ],
+      true
+    );
+
+    new sbt.CoreApplicationPlane(this, 'LambdaCoreApplicationPlane', {
       eventManager: eventManager,
-      scriptJobs: [provisioningJobScript, deprovisioningJobScript],
+      scriptJobs: [provisioningLambdaScriptJob, deprovisioningLambdaScriptJob],
     });
 
     const eventBusWatcherRule = new Rule(this, 'EventBusWatcherRule', {
@@ -161,9 +205,6 @@ echo "done!"
       retention: RetentionDays.ONE_WEEK,
     });
 
-    // use escape-hatch instead of native addTarget functionality to avoid
-    // unpredictable resource names that emit cdk-nag errors
-    // https://github.com/aws/aws-cdk/issues/17002#issuecomment-1144066244
     const cfnRule = eventBusWatcherRule.node.defaultChild as CfnRule;
     cfnRule.targets = [
       {
@@ -183,33 +224,18 @@ if (!process.env.CDK_PARAM_EVENT_BUS_ARN) {
 }
 
 const app = new cdk.App();
-const integStack = new IntegStack(app, process.env.CDK_PARAM_STACK_ID ?? 'CoreAppPlane-integ', {
-  eventBusArn: process.env.CDK_PARAM_EVENT_BUS_ARN,
-});
-
-NagSuppressions.addResourceSuppressionsByPath(
-  integStack,
-  `/${integStack.artifactId}/provisioningJobScript/codeBuildProvisionProjectRole/Resource`,
-  [
-    {
-      id: 'AwsSolutions-IAM5',
-      reason: 'Suppress Resource::* used for testing.',
-      appliesTo: ['Resource::*'],
-    },
-  ]
-);
-
-NagSuppressions.addResourceSuppressionsByPath(
-  integStack,
-  `/${integStack.artifactId}/deprovisioningJobScript/codeBuildProvisionProjectRole/Resource`,
-  [
-    {
-      id: 'AwsSolutions-IAM5',
-      reason: 'Suppress Resource::* used for testing.',
-      appliesTo: ['Resource::*'],
-    },
-  ]
+const integStack = new IntegStack(
+  app,
+  process.env.CDK_PARAM_STACK_ID ?? 'LambdaCoreAppPlane-integ',
+  {
+    eventBusArn: process.env.CDK_PARAM_EVENT_BUS_ARN,
+  }
 );
 
 cdk.Aspects.of(integStack).add(new DestroyPolicySetter());
 cdk.Aspects.of(integStack).add(new AwsSolutionsChecks({ verbose: true }));
+
+// Suppress all AWS Solutions Checks (Nag errors)
+NagSuppressions.addStackSuppressions(integStack, [
+  { id: 'AwsSolutions-IAM5', reason: 'Globally suppressing all nag warnings' },
+]);

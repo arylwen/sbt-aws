@@ -3,4 +3,6 @@
 
 export * from './core-app-plane';
 export * from './script-job';
+export * from './lambda-script-job';
 export * from './tenant-lifecycle-script-jobs';
+export * from './lambda-tenant-lifecycle-script-jobs';

@@ -3,6 +3,7 @@
 
 export * from './auth/auth-interface';
 export * from './auth/cognito-auth';
+export * from './auth/localstack-cognito-auth';
 export * from './aws-marketplace/index';
 export * from './billing/index';
 export * from './control-plane-api';

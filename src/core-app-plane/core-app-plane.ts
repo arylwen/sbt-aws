@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Construct } from 'constructs';
-import { ScriptJob } from './script-job';
+import { IScriptJob } from './script-job';
 import { IEventManager, addTemplateTag } from '../utils';
 
 /**
@@ -17,7 +17,7 @@ export interface CoreApplicationPlaneProps {
   /**
    * The list of JobRunners
    */
-  readonly scriptJobs?: ScriptJob[];
+  readonly scriptJobs?: IScriptJob[];
 }
 
 /**
