@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Custom runtime bootstrap for Lambda
+# This script acts as the entry point for the custom runtime
+
+# Lambda handler is expected to be passed as an environment variable
+if [ -z "$LAMBDA_HANDLER" ]; then
+  echo "Error: LAMBDA_HANDLER environment variable is not set."
+  exit 1
+fi
+
+# Set the working directory to /tmp
+cd /tmp || { echo "Failed to change directory to /tmp"; exit 1; }
+
+# Lambda event payload is expected to be passed as an environment variable or through a file
+LAMBDA_EVENT=${LAMBDA_EVENT:-'{}'}
+echo "Using event payload: $LAMBDA_EVENT"
+
+# Check if the handler should be executed with Python, Node.js, or Shell Script
+if [[ "$LAMBDA_HANDLER" == *".py" ]]; then
+  # Python execution with event payload
+  echo "Executing Python handler: $LAMBDA_HANDLER"
+  python3 -u "$LAMBDA_HANDLER" "$LAMBDA_EVENT"
+elif [[ "$LAMBDA_HANDLER" == *".js" ]]; then
+  # Node.js execution with event payload
+  echo "Executing Node.js handler: $LAMBDA_HANDLER"
+  node "$LAMBDA_HANDLER" "$LAMBDA_EVENT"
+elif [[ "$LAMBDA_HANDLER" == *".sh" ]]; then
+  # Shell script execution with event payload
+  echo "Executing Shell Script handler: $LAMBDA_HANDLER"
+  /bin/bash "$LAMBDA_HANDLER" "$LAMBDA_EVENT"
+else
+  echo "Unsupported handler type. Only .py, .js, or .sh handlers are supported."
+  exit 1
+fi

@@ -40,6 +40,9 @@ export class LambdaScriptJob extends Construct implements IScriptJob {
       eventBus
     );
 
+    // wait for the lambda before creating the state machine
+    this.provisioningStateMachine.node.addDependency(this.lambdaFunction);
+
     // Grant permission for the state machine to put events on the event bus
     eventBus.grantPutEventsTo(this.provisioningStateMachine);
 
@@ -50,7 +53,11 @@ export class LambdaScriptJob extends Construct implements IScriptJob {
   // Helper method to create the Lambda function that executes the script
   private createLambdaFunction(props: ScriptJobProps): lambda.Function {
     // Initialize environment variables for the Lambda function
-    const environmentVariables: { [key: string]: string } = {};
+    //const environmentVariables: { [key: string]: string } = {};
+
+    const environmentVariables: { [key: string]: string } = {
+      LAMBDA_HANDLER: 'index.handler.js', // Pass handler name for bootstrap
+    };
 
     // If script-specific environment variables are provided, add them to the environment
     if (props.scriptEnvironmentVariables) {
@@ -58,25 +65,33 @@ export class LambdaScriptJob extends Construct implements IScriptJob {
     }
 
     // Define the Lambda function with necessary properties
-    const lambdaFunction = new lambda.Function(this, 'LambdaFunction', {
-      runtime: lambda.Runtime.NODEJS_20_X, // Runtime environment for the Lambda function
-      handler: 'index.handler', // Entry point for the Lambda function
-      code: lambda.Code.fromInline(`
-        const { exec } = require('child_process');
-        exports.handler = async (event) => {
-          return new Promise((resolve, reject) => {
-            exec(\`${props.script}\`, (error, stdout, stderr) => {
-              if (error) {
-                reject({ error: stderr });
-              } else {
-                resolve({ output: stdout });
-              }
-            });
-          });
-        };
-      `), // Inline code for the Lambda function, which executes the provided script
-      environment: environmentVariables, // Environment variables passed to the Lambda function
-      timeout: cdk.Duration.minutes(15), // Maximum execution time for the Lambda function
+    //const lambdaFunction = new lambda.Function(this, 'LambdaFunction', {
+    //runtime: lambda.Runtime.NODEJS_20_X, // Runtime environment for the Lambda function
+    //  runtime: lambda.Runtime.FROM_IMAGE, // Runtime environment for the Lambda function
+    //  handler: 'index.handler', // Entry point for the Lambda function
+    //  code: lambda.Code.fromInline(`
+    //    const { exec } = require('child_process');
+    //    exports.handler = async (event) => {
+    //      return new Promise((resolve, reject) => {
+    //        exec(\`${props.script}\`, (error, stdout, stderr) => {
+    //          if (error) {
+    //            reject({ error: stderr });
+    //          } else {
+    //            resolve({ output: stdout });
+    //          }
+    //        });
+    //      });
+    //    };
+    //  `), // Inline code for the Lambda function, which executes the provided script
+    //  environment: environmentVariables, // Environment variables passed to the Lambda function
+    //  timeout: cdk.Duration.minutes(15), // Maximum execution time for the Lambda function
+    //});
+
+    const lambdaFunction = new lambda.DockerImageFunction(this, 'LambdaFunction', {
+      code: lambda.DockerImageCode.fromImageAsset('./docker/tenantprov'), // Path to your Dockerfile directory
+      environment: environmentVariables,
+      memorySize: 1024,
+      timeout: cdk.Duration.minutes(15),
     });
 
     // If custom IAM permissions are provided, attach them to the Lambda function's execution role
@@ -118,6 +133,8 @@ export class LambdaScriptJob extends Construct implements IScriptJob {
         stepfunctions.JsonPath.objectAt(`$.detail.${importedVar}`)
       );
     });
+
+    environmentVariablesOverride.script = props.script;
 
     // Create a log group for the state machine logs, with a short retention period
     const stateMachineLogGroup = new LogGroup(this, 'stateMachineLogGroup', {

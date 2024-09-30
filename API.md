@@ -2234,6 +2234,568 @@ The incoming event DetailType that triggers this job.
 ---
 
 
+### LocalstackCognitoAuth <a name="LocalstackCognitoAuth" id="@cdklabs/sbt-aws.LocalstackCognitoAuth"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
+
+Constructs for setting up Cognito authentication and user management.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer"></a>
+
+```typescript
+import { LocalstackCognitoAuth } from '@cdklabs/sbt-aws'
+
+new LocalstackCognitoAuth(scope: Construct, id: string, props?: LocalstackCognitoAuthProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps">LocalstackCognitoAuthProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps">LocalstackCognitoAuthProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser">createAdminUser</a></code> | Function to create an admin user. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `createAdminUser` <a name="createAdminUser" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser"></a>
+
+```typescript
+public createAdminUser(scope: Construct, id: string, props: CreateAdminUserProps): void
+```
+
+Function to create an admin user.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.CreateAdminUserProps">CreateAdminUserProps</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct"></a>
+
+```typescript
+import { LocalstackCognitoAuth } from '@cdklabs/sbt-aws'
+
+LocalstackCognitoAuth.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserFunction">createUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for creating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserFunction">deleteUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for deleting a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserFunction">disableUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for disabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserFunction">enableUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for enabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersFunction">fetchAllUsersFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for fetching all users -- GET /users. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserFunction">fetchUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for fetching a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtAudience">jwtAudience</a></code> | <code>string[]</code> | The list of recipients (audience) for which the JWT is intended. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtIssuer">jwtIssuer</a></code> | <code>string</code> | The JWT issuer domain for the identity provider. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientId">machineClientId</a></code> | <code>string</code> | The client ID enabled for machine-to-machine authorization flows, such as Client Credentials flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientSecret">machineClientSecret</a></code> | <code>aws-cdk-lib.SecretValue</code> | The client secret enabled for machine-to-machine authorization flows, such as Client Credentials flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.tokenEndpoint">tokenEndpoint</a></code> | <code>string</code> | The endpoint URL for granting OAuth tokens. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserFunction">updateUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for updating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userClientId">userClientId</a></code> | <code>string</code> | The client ID enabled for user-centric authentication flows, such as Authorization Code flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userPool">userPool</a></code> | <code>aws-cdk-lib.aws_cognito.UserPool</code> | UserPool created as part of this construct. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.wellKnownEndpointUrl">wellKnownEndpointUrl</a></code> | <code>string</code> | The well-known endpoint URL for the control plane identity provider. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.activateTenantScope">activateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for activating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createTenantScope">createTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for creating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserScope">createUserScope</a></code> | <code>string</code> | The scope required to authorize requests for creating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deactivateTenantScope">deactivateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for deactivating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteTenantScope">deleteTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for deleting a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserScope">deleteUserScope</a></code> | <code>string</code> | The scope required to authorize requests for deleting a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserScope">disableUserScope</a></code> | <code>string</code> | The scope required to authorize requests for disabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserScope">enableUserScope</a></code> | <code>string</code> | The scope required to authorize requests for enabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllTenantsScope">fetchAllTenantsScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching all tenants. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersScope">fetchAllUsersScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching all users. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchTenantScope">fetchTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching a single tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserScope">fetchUserScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching a single user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateTenantScope">updateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for updating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserScope">updateUserScope</a></code> | <code>string</code> | The scope required to authorize requests for updating a user. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `createUserFunction`<sup>Required</sup> <a name="createUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserFunction"></a>
+
+```typescript
+public readonly createUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for creating a user.
+
+- POST /users
+
+---
+
+##### `deleteUserFunction`<sup>Required</sup> <a name="deleteUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserFunction"></a>
+
+```typescript
+public readonly deleteUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for deleting a user.
+
+- DELETE /user/{userId}
+
+---
+
+##### `disableUserFunction`<sup>Required</sup> <a name="disableUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserFunction"></a>
+
+```typescript
+public readonly disableUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for disabling a user.
+
+- PUT /user/{userId}/disable
+
+---
+
+##### `enableUserFunction`<sup>Required</sup> <a name="enableUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserFunction"></a>
+
+```typescript
+public readonly enableUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for enabling a user.
+
+- PUT /user/{userId}/enable
+
+---
+
+##### `fetchAllUsersFunction`<sup>Required</sup> <a name="fetchAllUsersFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersFunction"></a>
+
+```typescript
+public readonly fetchAllUsersFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for fetching all users -- GET /users.
+
+---
+
+##### `fetchUserFunction`<sup>Required</sup> <a name="fetchUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserFunction"></a>
+
+```typescript
+public readonly fetchUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for fetching a user.
+
+- GET /user/{userId}
+
+---
+
+##### `jwtAudience`<sup>Required</sup> <a name="jwtAudience" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtAudience"></a>
+
+```typescript
+public readonly jwtAudience: string[];
+```
+
+- *Type:* string[]
+
+The list of recipients (audience) for which the JWT is intended.
+
+This will be checked by the API GW to ensure only authorized
+clients are provided access.
+
+---
+
+##### `jwtIssuer`<sup>Required</sup> <a name="jwtIssuer" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtIssuer"></a>
+
+```typescript
+public readonly jwtIssuer: string;
+```
+
+- *Type:* string
+
+The JWT issuer domain for the identity provider.
+
+This is the domain where the JSON Web Tokens (JWTs) are issued from.
+
+---
+
+##### `machineClientId`<sup>Required</sup> <a name="machineClientId" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientId"></a>
+
+```typescript
+public readonly machineClientId: string;
+```
+
+- *Type:* string
+
+The client ID enabled for machine-to-machine authorization flows, such as Client Credentials flow.
+
+This client ID is used for authenticating applications or services.
+
+---
+
+##### `machineClientSecret`<sup>Required</sup> <a name="machineClientSecret" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientSecret"></a>
+
+```typescript
+public readonly machineClientSecret: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+The client secret enabled for machine-to-machine authorization flows, such as Client Credentials flow.
+
+This secret is used in combination with the machine client ID for authenticating applications or services.
+
+---
+
+##### `tokenEndpoint`<sup>Required</sup> <a name="tokenEndpoint" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.tokenEndpoint"></a>
+
+```typescript
+public readonly tokenEndpoint: string;
+```
+
+- *Type:* string
+
+The endpoint URL for granting OAuth tokens.
+
+This is the URL where OAuth tokens can be obtained from the authorization server.
+
+---
+
+##### `updateUserFunction`<sup>Required</sup> <a name="updateUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserFunction"></a>
+
+```typescript
+public readonly updateUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for updating a user.
+
+- PUT /user/{userId}
+
+---
+
+##### `userClientId`<sup>Required</sup> <a name="userClientId" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userClientId"></a>
+
+```typescript
+public readonly userClientId: string;
+```
+
+- *Type:* string
+
+The client ID enabled for user-centric authentication flows, such as Authorization Code flow.
+
+This client ID is used for authenticating end-users.
+
+---
+
+##### `userPool`<sup>Required</sup> <a name="userPool" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userPool"></a>
+
+```typescript
+public readonly userPool: UserPool;
+```
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPool
+
+UserPool created as part of this construct.
+
+---
+
+##### `wellKnownEndpointUrl`<sup>Required</sup> <a name="wellKnownEndpointUrl" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.wellKnownEndpointUrl"></a>
+
+```typescript
+public readonly wellKnownEndpointUrl: string;
+```
+
+- *Type:* string
+
+The well-known endpoint URL for the control plane identity provider.
+
+This URL provides configuration information about the identity provider, such as issuer, authorization endpoint, and token endpoint.
+
+---
+
+##### `activateTenantScope`<sup>Optional</sup> <a name="activateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.activateTenantScope"></a>
+
+```typescript
+public readonly activateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for activating a tenant.
+
+This scope grants permission to activate a specific tenant.
+
+---
+
+##### `createTenantScope`<sup>Optional</sup> <a name="createTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createTenantScope"></a>
+
+```typescript
+public readonly createTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for creating a tenant.
+
+This scope grants permission to create a new tenant.
+
+---
+
+##### `createUserScope`<sup>Optional</sup> <a name="createUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserScope"></a>
+
+```typescript
+public readonly createUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for creating a user.
+
+This scope grants permission to create a new user.
+
+---
+
+##### `deactivateTenantScope`<sup>Optional</sup> <a name="deactivateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deactivateTenantScope"></a>
+
+```typescript
+public readonly deactivateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deactivating a tenant.
+
+This scope grants permission to deactivate a specific tenant.
+
+---
+
+##### `deleteTenantScope`<sup>Optional</sup> <a name="deleteTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteTenantScope"></a>
+
+```typescript
+public readonly deleteTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deleting a tenant.
+
+This scope grants permission to delete a specific tenant.
+
+---
+
+##### `deleteUserScope`<sup>Optional</sup> <a name="deleteUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserScope"></a>
+
+```typescript
+public readonly deleteUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deleting a user.
+
+This scope grants permission to delete a specific user.
+
+---
+
+##### `disableUserScope`<sup>Optional</sup> <a name="disableUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserScope"></a>
+
+```typescript
+public readonly disableUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for disabling a user.
+
+This scope grants permission to disable a specific user.
+
+---
+
+##### `enableUserScope`<sup>Optional</sup> <a name="enableUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserScope"></a>
+
+```typescript
+public readonly enableUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for enabling a user.
+
+This scope grants permission to enable a specific user.
+
+---
+
+##### `fetchAllTenantsScope`<sup>Optional</sup> <a name="fetchAllTenantsScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllTenantsScope"></a>
+
+```typescript
+public readonly fetchAllTenantsScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching all tenants.
+
+This scope grants permission to fetch the details of all tenants.
+
+---
+
+##### `fetchAllUsersScope`<sup>Optional</sup> <a name="fetchAllUsersScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersScope"></a>
+
+```typescript
+public readonly fetchAllUsersScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching all users.
+
+This scope grants permission to fetch the details of all users.
+
+---
+
+##### `fetchTenantScope`<sup>Optional</sup> <a name="fetchTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchTenantScope"></a>
+
+```typescript
+public readonly fetchTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching a single tenant.
+
+This scope grants permission to fetch the details of a specific tenant.
+
+---
+
+##### `fetchUserScope`<sup>Optional</sup> <a name="fetchUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserScope"></a>
+
+```typescript
+public readonly fetchUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching a single user.
+
+This scope grants permission to fetch the details of a specific user.
+
+---
+
+##### `updateTenantScope`<sup>Optional</sup> <a name="updateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateTenantScope"></a>
+
+```typescript
+public readonly updateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for updating a tenant.
+
+This scope grants permission to update the details of a specific tenant.
+
+---
+
+##### `updateUserScope`<sup>Optional</sup> <a name="updateUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserScope"></a>
+
+```typescript
+public readonly updateUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for updating a user.
+
+This scope grants permission to update the details of a specific user.
+
+---
+
+
 ### MeteringProvider <a name="MeteringProvider" id="@cdklabs/sbt-aws.MeteringProvider"></a>
 
 Represents a Metering Provider that handles metering-related operations and connects the concrete IMetering implementation (provided via props.metering) to the control plane.
@@ -4226,6 +4788,55 @@ The JMESPath to find the primary key value in the incoming data stream.
 
 ---
 
+### LocalstackCognitoAuthProps <a name="LocalstackCognitoAuthProps" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps"></a>
+
+Properties for the CognitoAuth construct.
+
+#### Initializer <a name="Initializer" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.Initializer"></a>
+
+```typescript
+import { LocalstackCognitoAuthProps } from '@cdklabs/sbt-aws'
+
+const localstackCognitoAuthProps: LocalstackCognitoAuthProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.controlPlaneCallbackURL">controlPlaneCallbackURL</a></code> | <code>string</code> | The callback URL for the control plane. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.setAPIGWScopes">setAPIGWScopes</a></code> | <code>boolean</code> | Whether or not to specify scopes for validation at the API GW. |
+
+---
+
+##### `controlPlaneCallbackURL`<sup>Optional</sup> <a name="controlPlaneCallbackURL" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.controlPlaneCallbackURL"></a>
+
+```typescript
+public readonly controlPlaneCallbackURL: string;
+```
+
+- *Type:* string
+- *Default:* 'http://localhost'
+
+The callback URL for the control plane.
+
+---
+
+##### `setAPIGWScopes`<sup>Optional</sup> <a name="setAPIGWScopes" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.setAPIGWScopes"></a>
+
+```typescript
+public readonly setAPIGWScopes: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether or not to specify scopes for validation at the API GW.
+
+Can be used for testing purposes.
+
+---
+
 ### MeteringProviderProps <a name="MeteringProviderProps" id="@cdklabs/sbt-aws.MeteringProviderProps"></a>
 
 Encapsulates the list of properties for a MeteringProvider.
@@ -5146,7 +5757,7 @@ The detail-type that will trigger the handler function.
 
 ### IAuth <a name="IAuth" id="@cdklabs/sbt-aws.IAuth"></a>
 
-- *Implemented By:* <a href="#@cdklabs/sbt-aws.CognitoAuth">CognitoAuth</a>, <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
+- *Implemented By:* <a href="#@cdklabs/sbt-aws.CognitoAuth">CognitoAuth</a>, <a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth">LocalstackCognitoAuth</a>, <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
 
 Encapsulates the list of properties expected as outputs of Auth plugins.
 
