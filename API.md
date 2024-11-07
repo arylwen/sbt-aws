@@ -276,6 +276,174 @@ Only set when the IBilling webhookFunction is defined.
 ---
 
 
+### CodeBuildScriptJob <a name="CodeBuildScriptJob" id="@cdklabs/sbt-aws.CodeBuildScriptJob"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+Provides a ScriptJob to execute arbitrary bash code.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer"></a>
+
+```typescript
+import { CodeBuildScriptJob } from '@cdklabs/sbt-aws'
+
+new CodeBuildScriptJob(scope: Construct, id: string, props: ScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.CodeBuildScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.CodeBuildScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct"></a>
+
+```typescript
+import { CodeBuildScriptJob } from '@cdklabs/sbt-aws'
+
+CodeBuildScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.CodeBuildScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.CodeBuildScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `codebuildProject`<sup>Required</sup> <a name="codebuildProject" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.codebuildProject"></a>
+
+```typescript
+public readonly codebuildProject: Project;
+```
+
+- *Type:* aws-cdk-lib.aws_codebuild.Project
+
+The codebuildProject used to implement this ScriptJob.
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine used to implement this ScriptJob orchestration.
+
+---
+
+##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.environmentVariablesToOutgoingEvent"></a>
+
+```typescript
+public readonly environmentVariablesToOutgoingEvent: string[];
+```
+
+- *Type:* string[]
+
+The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.CodeBuildScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### CognitoAuth <a name="CognitoAuth" id="@cdklabs/sbt-aws.CognitoAuth"></a>
 
 - *Implements:* <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
@@ -1213,6 +1381,158 @@ The EventManager instance that allows connecting to events flowing between the C
 ---
 
 
+### DeprovisioningLambdaScriptJob <a name="DeprovisioningLambdaScriptJob" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob"></a>
+
+Provides a DeprovisioningLambdaScriptJob to execute arbitrary bash code.
+
+This is a simple wrapper around LambdaScriptJob that reduces some of the parameters
+that need to be configured.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer"></a>
+
+```typescript
+import { DeprovisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new DeprovisioningLambdaScriptJob(scope: Construct, id: string, props: TenantLifecycleLambdaScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { DeprovisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+DeprovisioningLambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### DeprovisioningScriptJob <a name="DeprovisioningScriptJob" id="@cdklabs/sbt-aws.DeprovisioningScriptJob"></a>
 
 Provides a DeprovisioningScriptJob to execute arbitrary bash code.
@@ -1302,10 +1622,10 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
 | <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 
 ---
 
@@ -1333,30 +1653,6 @@ The codebuildProject used to implement this ScriptJob.
 
 ---
 
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
 ##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.provisioningStateMachine"></a>
 
 ```typescript
@@ -1378,6 +1674,30 @@ public readonly environmentVariablesToOutgoingEvent: string[];
 - *Type:* string[]
 
 The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.DeprovisioningScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 
@@ -1765,6 +2085,717 @@ The DynamoDB table containing the aggregated data.
 ---
 
 
+### LambdaScriptJob <a name="LambdaScriptJob" id="@cdklabs/sbt-aws.LambdaScriptJob"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer"></a>
+
+```typescript
+import { LambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new LambdaScriptJob(scope: Construct, id: string, props: ScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.LambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.LambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.LambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { LambdaScriptJob } from '@cdklabs/sbt-aws'
+
+LambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.LambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.LambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.LambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.LambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.LambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.LambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.LambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
+### LocalstackCognitoAuth <a name="LocalstackCognitoAuth" id="@cdklabs/sbt-aws.LocalstackCognitoAuth"></a>
+
+- *Implements:* <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
+
+Constructs for setting up Cognito authentication and user management.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer"></a>
+
+```typescript
+import { LocalstackCognitoAuth } from '@cdklabs/sbt-aws'
+
+new LocalstackCognitoAuth(scope: Construct, id: string, props?: LocalstackCognitoAuthProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps">LocalstackCognitoAuthProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps">LocalstackCognitoAuthProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser">createAdminUser</a></code> | Function to create an admin user. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `createAdminUser` <a name="createAdminUser" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser"></a>
+
+```typescript
+public createAdminUser(scope: Construct, id: string, props: CreateAdminUserProps): void
+```
+
+Function to create an admin user.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.createAdminUser.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.CreateAdminUserProps">CreateAdminUserProps</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct"></a>
+
+```typescript
+import { LocalstackCognitoAuth } from '@cdklabs/sbt-aws'
+
+LocalstackCognitoAuth.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserFunction">createUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for creating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserFunction">deleteUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for deleting a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserFunction">disableUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for disabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserFunction">enableUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for enabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersFunction">fetchAllUsersFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for fetching all users -- GET /users. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserFunction">fetchUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for fetching a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtAudience">jwtAudience</a></code> | <code>string[]</code> | The list of recipients (audience) for which the JWT is intended. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtIssuer">jwtIssuer</a></code> | <code>string</code> | The JWT issuer domain for the identity provider. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientId">machineClientId</a></code> | <code>string</code> | The client ID enabled for machine-to-machine authorization flows, such as Client Credentials flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientSecret">machineClientSecret</a></code> | <code>aws-cdk-lib.SecretValue</code> | The client secret enabled for machine-to-machine authorization flows, such as Client Credentials flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.tokenEndpoint">tokenEndpoint</a></code> | <code>string</code> | The endpoint URL for granting OAuth tokens. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserFunction">updateUserFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function for updating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userClientId">userClientId</a></code> | <code>string</code> | The client ID enabled for user-centric authentication flows, such as Authorization Code flow. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userPool">userPool</a></code> | <code>aws-cdk-lib.aws_cognito.UserPool</code> | UserPool created as part of this construct. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.wellKnownEndpointUrl">wellKnownEndpointUrl</a></code> | <code>string</code> | The well-known endpoint URL for the control plane identity provider. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.activateTenantScope">activateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for activating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createTenantScope">createTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for creating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserScope">createUserScope</a></code> | <code>string</code> | The scope required to authorize requests for creating a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deactivateTenantScope">deactivateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for deactivating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteTenantScope">deleteTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for deleting a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserScope">deleteUserScope</a></code> | <code>string</code> | The scope required to authorize requests for deleting a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserScope">disableUserScope</a></code> | <code>string</code> | The scope required to authorize requests for disabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserScope">enableUserScope</a></code> | <code>string</code> | The scope required to authorize requests for enabling a user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllTenantsScope">fetchAllTenantsScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching all tenants. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersScope">fetchAllUsersScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching all users. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchTenantScope">fetchTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching a single tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserScope">fetchUserScope</a></code> | <code>string</code> | The scope required to authorize requests for fetching a single user. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateTenantScope">updateTenantScope</a></code> | <code>string</code> | The scope required to authorize requests for updating a tenant. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserScope">updateUserScope</a></code> | <code>string</code> | The scope required to authorize requests for updating a user. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `createUserFunction`<sup>Required</sup> <a name="createUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserFunction"></a>
+
+```typescript
+public readonly createUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for creating a user.
+
+- POST /users
+
+---
+
+##### `deleteUserFunction`<sup>Required</sup> <a name="deleteUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserFunction"></a>
+
+```typescript
+public readonly deleteUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for deleting a user.
+
+- DELETE /user/{userId}
+
+---
+
+##### `disableUserFunction`<sup>Required</sup> <a name="disableUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserFunction"></a>
+
+```typescript
+public readonly disableUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for disabling a user.
+
+- PUT /user/{userId}/disable
+
+---
+
+##### `enableUserFunction`<sup>Required</sup> <a name="enableUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserFunction"></a>
+
+```typescript
+public readonly enableUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for enabling a user.
+
+- PUT /user/{userId}/enable
+
+---
+
+##### `fetchAllUsersFunction`<sup>Required</sup> <a name="fetchAllUsersFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersFunction"></a>
+
+```typescript
+public readonly fetchAllUsersFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for fetching all users -- GET /users.
+
+---
+
+##### `fetchUserFunction`<sup>Required</sup> <a name="fetchUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserFunction"></a>
+
+```typescript
+public readonly fetchUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for fetching a user.
+
+- GET /user/{userId}
+
+---
+
+##### `jwtAudience`<sup>Required</sup> <a name="jwtAudience" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtAudience"></a>
+
+```typescript
+public readonly jwtAudience: string[];
+```
+
+- *Type:* string[]
+
+The list of recipients (audience) for which the JWT is intended.
+
+This will be checked by the API GW to ensure only authorized
+clients are provided access.
+
+---
+
+##### `jwtIssuer`<sup>Required</sup> <a name="jwtIssuer" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.jwtIssuer"></a>
+
+```typescript
+public readonly jwtIssuer: string;
+```
+
+- *Type:* string
+
+The JWT issuer domain for the identity provider.
+
+This is the domain where the JSON Web Tokens (JWTs) are issued from.
+
+---
+
+##### `machineClientId`<sup>Required</sup> <a name="machineClientId" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientId"></a>
+
+```typescript
+public readonly machineClientId: string;
+```
+
+- *Type:* string
+
+The client ID enabled for machine-to-machine authorization flows, such as Client Credentials flow.
+
+This client ID is used for authenticating applications or services.
+
+---
+
+##### `machineClientSecret`<sup>Required</sup> <a name="machineClientSecret" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.machineClientSecret"></a>
+
+```typescript
+public readonly machineClientSecret: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+The client secret enabled for machine-to-machine authorization flows, such as Client Credentials flow.
+
+This secret is used in combination with the machine client ID for authenticating applications or services.
+
+---
+
+##### `tokenEndpoint`<sup>Required</sup> <a name="tokenEndpoint" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.tokenEndpoint"></a>
+
+```typescript
+public readonly tokenEndpoint: string;
+```
+
+- *Type:* string
+
+The endpoint URL for granting OAuth tokens.
+
+This is the URL where OAuth tokens can be obtained from the authorization server.
+
+---
+
+##### `updateUserFunction`<sup>Required</sup> <a name="updateUserFunction" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserFunction"></a>
+
+```typescript
+public readonly updateUserFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function for updating a user.
+
+- PUT /user/{userId}
+
+---
+
+##### `userClientId`<sup>Required</sup> <a name="userClientId" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userClientId"></a>
+
+```typescript
+public readonly userClientId: string;
+```
+
+- *Type:* string
+
+The client ID enabled for user-centric authentication flows, such as Authorization Code flow.
+
+This client ID is used for authenticating end-users.
+
+---
+
+##### `userPool`<sup>Required</sup> <a name="userPool" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.userPool"></a>
+
+```typescript
+public readonly userPool: UserPool;
+```
+
+- *Type:* aws-cdk-lib.aws_cognito.UserPool
+
+UserPool created as part of this construct.
+
+---
+
+##### `wellKnownEndpointUrl`<sup>Required</sup> <a name="wellKnownEndpointUrl" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.wellKnownEndpointUrl"></a>
+
+```typescript
+public readonly wellKnownEndpointUrl: string;
+```
+
+- *Type:* string
+
+The well-known endpoint URL for the control plane identity provider.
+
+This URL provides configuration information about the identity provider, such as issuer, authorization endpoint, and token endpoint.
+
+---
+
+##### `activateTenantScope`<sup>Optional</sup> <a name="activateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.activateTenantScope"></a>
+
+```typescript
+public readonly activateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for activating a tenant.
+
+This scope grants permission to activate a specific tenant.
+
+---
+
+##### `createTenantScope`<sup>Optional</sup> <a name="createTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createTenantScope"></a>
+
+```typescript
+public readonly createTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for creating a tenant.
+
+This scope grants permission to create a new tenant.
+
+---
+
+##### `createUserScope`<sup>Optional</sup> <a name="createUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.createUserScope"></a>
+
+```typescript
+public readonly createUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for creating a user.
+
+This scope grants permission to create a new user.
+
+---
+
+##### `deactivateTenantScope`<sup>Optional</sup> <a name="deactivateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deactivateTenantScope"></a>
+
+```typescript
+public readonly deactivateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deactivating a tenant.
+
+This scope grants permission to deactivate a specific tenant.
+
+---
+
+##### `deleteTenantScope`<sup>Optional</sup> <a name="deleteTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteTenantScope"></a>
+
+```typescript
+public readonly deleteTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deleting a tenant.
+
+This scope grants permission to delete a specific tenant.
+
+---
+
+##### `deleteUserScope`<sup>Optional</sup> <a name="deleteUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.deleteUserScope"></a>
+
+```typescript
+public readonly deleteUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for deleting a user.
+
+This scope grants permission to delete a specific user.
+
+---
+
+##### `disableUserScope`<sup>Optional</sup> <a name="disableUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.disableUserScope"></a>
+
+```typescript
+public readonly disableUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for disabling a user.
+
+This scope grants permission to disable a specific user.
+
+---
+
+##### `enableUserScope`<sup>Optional</sup> <a name="enableUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.enableUserScope"></a>
+
+```typescript
+public readonly enableUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for enabling a user.
+
+This scope grants permission to enable a specific user.
+
+---
+
+##### `fetchAllTenantsScope`<sup>Optional</sup> <a name="fetchAllTenantsScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllTenantsScope"></a>
+
+```typescript
+public readonly fetchAllTenantsScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching all tenants.
+
+This scope grants permission to fetch the details of all tenants.
+
+---
+
+##### `fetchAllUsersScope`<sup>Optional</sup> <a name="fetchAllUsersScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchAllUsersScope"></a>
+
+```typescript
+public readonly fetchAllUsersScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching all users.
+
+This scope grants permission to fetch the details of all users.
+
+---
+
+##### `fetchTenantScope`<sup>Optional</sup> <a name="fetchTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchTenantScope"></a>
+
+```typescript
+public readonly fetchTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching a single tenant.
+
+This scope grants permission to fetch the details of a specific tenant.
+
+---
+
+##### `fetchUserScope`<sup>Optional</sup> <a name="fetchUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.fetchUserScope"></a>
+
+```typescript
+public readonly fetchUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for fetching a single user.
+
+This scope grants permission to fetch the details of a specific user.
+
+---
+
+##### `updateTenantScope`<sup>Optional</sup> <a name="updateTenantScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateTenantScope"></a>
+
+```typescript
+public readonly updateTenantScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for updating a tenant.
+
+This scope grants permission to update the details of a specific tenant.
+
+---
+
+##### `updateUserScope`<sup>Optional</sup> <a name="updateUserScope" id="@cdklabs/sbt-aws.LocalstackCognitoAuth.property.updateUserScope"></a>
+
+```typescript
+public readonly updateUserScope: string;
+```
+
+- *Type:* string
+
+The scope required to authorize requests for updating a user.
+
+This scope grants permission to update the details of a specific user.
+
+---
+
+
 ### MeteringProvider <a name="MeteringProvider" id="@cdklabs/sbt-aws.MeteringProvider"></a>
 
 Represents a Metering Provider that handles metering-related operations and connects the concrete IMetering implementation (provided via props.metering) to the control plane.
@@ -1869,6 +2900,158 @@ The tree node.
 ---
 
 
+### ProvisioningLambdaScriptJob <a name="ProvisioningLambdaScriptJob" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob"></a>
+
+Provides a ProvisioningLambdaScriptJob to execute arbitrary bash code.
+
+This is a simple wrapper around LambdaScriptJob that reduces some of the parameters
+that need to be configured.
+
+#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer"></a>
+
+```typescript
+import { ProvisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+new ProvisioningLambdaScriptJob(scope: Construct, id: string, props: TenantLifecycleLambdaScriptJobProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps">TenantLifecycleLambdaScriptJobProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct"></a>
+
+```typescript
+import { ProvisioningLambdaScriptJob } from '@cdklabs/sbt-aws'
+
+ProvisioningLambdaScriptJob.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.provisioningStateMachine"></a>
+
+```typescript
+public readonly provisioningStateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningLambdaScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
+
+---
+
+
 ### ProvisioningScriptJob <a name="ProvisioningScriptJob" id="@cdklabs/sbt-aws.ProvisioningScriptJob"></a>
 
 Provides a ProvisioningScriptJob to execute arbitrary bash code.
@@ -1958,10 +3141,10 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
 | <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
 
 ---
 
@@ -1989,30 +3172,6 @@ The codebuildProject used to implement this ScriptJob.
 
 ---
 
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
 ##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.provisioningStateMachine"></a>
 
 ```typescript
@@ -2034,6 +3193,30 @@ public readonly environmentVariablesToOutgoingEvent: string[];
 - *Type:* string[]
 
 The environment variables to export into the outgoing event once the ScriptJob has finished.
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ProvisioningScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 
@@ -2137,172 +3320,6 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
-
----
-
-
-### ScriptJob <a name="ScriptJob" id="@cdklabs/sbt-aws.ScriptJob"></a>
-
-Provides a ScriptJob to execute arbitrary bash code.
-
-#### Initializers <a name="Initializers" id="@cdklabs/sbt-aws.ScriptJob.Initializer"></a>
-
-```typescript
-import { ScriptJob } from '@cdklabs/sbt-aws'
-
-new ScriptJob(scope: Construct, id: string, props: ScriptJobProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.props">props</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@cdklabs/sbt-aws.ScriptJob.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJobProps">ScriptJobProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.toString">toString</a></code> | Returns a string representation of this construct. |
-
----
-
-##### `toString` <a name="toString" id="@cdklabs/sbt-aws.ScriptJob.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@cdklabs/sbt-aws.ScriptJob.isConstruct"></a>
-
-```typescript
-import { ScriptJob } from '@cdklabs/sbt-aws'
-
-ScriptJob.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@cdklabs/sbt-aws.ScriptJob.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.codebuildProject">codebuildProject</a></code> | <code>aws-cdk-lib.aws_codebuild.Project</code> | The codebuildProject used to implement this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.provisioningStateMachine">provisioningStateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine used to implement this ScriptJob orchestration. |
-| <code><a href="#@cdklabs/sbt-aws.ScriptJob.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | The environment variables to export into the outgoing event once the ScriptJob has finished. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@cdklabs/sbt-aws.ScriptJob.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `codebuildProject`<sup>Required</sup> <a name="codebuildProject" id="@cdklabs/sbt-aws.ScriptJob.property.codebuildProject"></a>
-
-```typescript
-public readonly codebuildProject: Project;
-```
-
-- *Type:* aws-cdk-lib.aws_codebuild.Project
-
-The codebuildProject used to implement this ScriptJob.
-
----
-
-##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.ScriptJob.property.eventTarget"></a>
-
-```typescript
-public readonly eventTarget: IRuleTarget;
-```
-
-- *Type:* aws-cdk-lib.aws_events.IRuleTarget
-
-The eventTarget to use when triggering this ScriptJob.
-
----
-
-##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.ScriptJob.property.incomingEvent"></a>
-
-```typescript
-public readonly incomingEvent: DetailType;
-```
-
-- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
-
-The incoming event DetailType that triggers this job.
-
----
-
-##### `provisioningStateMachine`<sup>Required</sup> <a name="provisioningStateMachine" id="@cdklabs/sbt-aws.ScriptJob.property.provisioningStateMachine"></a>
-
-```typescript
-public readonly provisioningStateMachine: StateMachine;
-```
-
-- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
-
-The StateMachine used to implement this ScriptJob orchestration.
-
----
-
-##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.ScriptJob.property.environmentVariablesToOutgoingEvent"></a>
-
-```typescript
-public readonly environmentVariablesToOutgoingEvent: string[];
-```
-
-- *Type:* string[]
-
-The environment variables to export into the outgoing event once the ScriptJob has finished.
 
 ---
 
@@ -3539,7 +4556,7 @@ const coreApplicationPlaneProps: CoreApplicationPlaneProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.eventManager">eventManager</a></code> | <code><a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a></code> | The event manager instance. |
-| <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs">scriptJobs</a></code> | <code><a href="#@cdklabs/sbt-aws.ScriptJob">ScriptJob</a>[]</code> | The list of JobRunners. |
+| <code><a href="#@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs">scriptJobs</a></code> | <code><a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>[]</code> | The list of JobRunners. |
 
 ---
 
@@ -3560,10 +4577,10 @@ This is used to trigger scriptJobs.
 ##### `scriptJobs`<sup>Optional</sup> <a name="scriptJobs" id="@cdklabs/sbt-aws.CoreApplicationPlaneProps.property.scriptJobs"></a>
 
 ```typescript
-public readonly scriptJobs: ScriptJob[];
+public readonly scriptJobs: IScriptJob[];
 ```
 
-- *Type:* <a href="#@cdklabs/sbt-aws.ScriptJob">ScriptJob</a>[]
+- *Type:* <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>[]
 
 The list of JobRunners.
 
@@ -3768,6 +4785,55 @@ public readonly primaryKeyPath: string;
 - *Type:* string
 
 The JMESPath to find the primary key value in the incoming data stream.
+
+---
+
+### LocalstackCognitoAuthProps <a name="LocalstackCognitoAuthProps" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps"></a>
+
+Properties for the CognitoAuth construct.
+
+#### Initializer <a name="Initializer" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.Initializer"></a>
+
+```typescript
+import { LocalstackCognitoAuthProps } from '@cdklabs/sbt-aws'
+
+const localstackCognitoAuthProps: LocalstackCognitoAuthProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.controlPlaneCallbackURL">controlPlaneCallbackURL</a></code> | <code>string</code> | The callback URL for the control plane. |
+| <code><a href="#@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.setAPIGWScopes">setAPIGWScopes</a></code> | <code>boolean</code> | Whether or not to specify scopes for validation at the API GW. |
+
+---
+
+##### `controlPlaneCallbackURL`<sup>Optional</sup> <a name="controlPlaneCallbackURL" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.controlPlaneCallbackURL"></a>
+
+```typescript
+public readonly controlPlaneCallbackURL: string;
+```
+
+- *Type:* string
+- *Default:* 'http://localhost'
+
+The callback URL for the control plane.
+
+---
+
+##### `setAPIGWScopes`<sup>Optional</sup> <a name="setAPIGWScopes" id="@cdklabs/sbt-aws.LocalstackCognitoAuthProps.property.setAPIGWScopes"></a>
+
+```typescript
+public readonly setAPIGWScopes: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether or not to specify scopes for validation at the API GW.
+
+Can be used for testing purposes.
 
 ---
 
@@ -4255,6 +5321,113 @@ public readonly tenantManagementTable: TenantManagementTable;
 
 ---
 
+### TenantLifecycleLambdaScriptJobProps <a name="TenantLifecycleLambdaScriptJobProps" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps"></a>
+
+Encapsulates the list of properties for ScriptJobs that handle lifecycle management for tenants.
+
+#### Initializer <a name="Initializer" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.Initializer"></a>
+
+```typescript
+import { TenantLifecycleLambdaScriptJobProps } from '@cdklabs/sbt-aws'
+
+const tenantLifecycleLambdaScriptJobProps: TenantLifecycleLambdaScriptJobProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.eventManager">eventManager</a></code> | <code><a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a></code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.permissions">permissions</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.script">script</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentJSONVariablesFromIncomingEvent">environmentJSONVariablesFromIncomingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentStringVariablesFromIncomingEvent">environmentStringVariablesFromIncomingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentVariablesToOutgoingEvent">environmentVariablesToOutgoingEvent</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.postScript">postScript</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.scriptEnvironmentVariables">scriptEnvironmentVariables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+
+---
+
+##### `eventManager`<sup>Required</sup> <a name="eventManager" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.eventManager"></a>
+
+```typescript
+public readonly eventManager: IEventManager;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.IEventManager">IEventManager</a>
+
+---
+
+##### `permissions`<sup>Required</sup> <a name="permissions" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.permissions"></a>
+
+```typescript
+public readonly permissions: PolicyDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
+
+---
+
+##### `script`<sup>Required</sup> <a name="script" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.script"></a>
+
+```typescript
+public readonly script: string;
+```
+
+- *Type:* string
+
+---
+
+##### `environmentJSONVariablesFromIncomingEvent`<sup>Optional</sup> <a name="environmentJSONVariablesFromIncomingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentJSONVariablesFromIncomingEvent"></a>
+
+```typescript
+public readonly environmentJSONVariablesFromIncomingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `environmentStringVariablesFromIncomingEvent`<sup>Optional</sup> <a name="environmentStringVariablesFromIncomingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentStringVariablesFromIncomingEvent"></a>
+
+```typescript
+public readonly environmentStringVariablesFromIncomingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `environmentVariablesToOutgoingEvent`<sup>Optional</sup> <a name="environmentVariablesToOutgoingEvent" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.environmentVariablesToOutgoingEvent"></a>
+
+```typescript
+public readonly environmentVariablesToOutgoingEvent: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `postScript`<sup>Optional</sup> <a name="postScript" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.postScript"></a>
+
+```typescript
+public readonly postScript: string;
+```
+
+- *Type:* string
+
+---
+
+##### `scriptEnvironmentVariables`<sup>Optional</sup> <a name="scriptEnvironmentVariables" id="@cdklabs/sbt-aws.TenantLifecycleLambdaScriptJobProps.property.scriptEnvironmentVariables"></a>
+
+```typescript
+public readonly scriptEnvironmentVariables: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
 ### TenantLifecycleScriptJobProps <a name="TenantLifecycleScriptJobProps" id="@cdklabs/sbt-aws.TenantLifecycleScriptJobProps"></a>
 
 Encapsulates the list of properties for a ScriptJobs that handle lifecycle management for tenants.
@@ -4584,7 +5757,7 @@ The detail-type that will trigger the handler function.
 
 ### IAuth <a name="IAuth" id="@cdklabs/sbt-aws.IAuth"></a>
 
-- *Implemented By:* <a href="#@cdklabs/sbt-aws.CognitoAuth">CognitoAuth</a>, <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
+- *Implemented By:* <a href="#@cdklabs/sbt-aws.CognitoAuth">CognitoAuth</a>, <a href="#@cdklabs/sbt-aws.LocalstackCognitoAuth">LocalstackCognitoAuth</a>, <a href="#@cdklabs/sbt-aws.IAuth">IAuth</a>
 
 Encapsulates the list of properties expected as outputs of Auth plugins.
 
@@ -5665,6 +6838,44 @@ public readonly scope: string;
 ```
 
 - *Type:* string
+
+---
+
+### IScriptJob <a name="IScriptJob" id="@cdklabs/sbt-aws.IScriptJob"></a>
+
+- *Implemented By:* <a href="#@cdklabs/sbt-aws.CodeBuildScriptJob">CodeBuildScriptJob</a>, <a href="#@cdklabs/sbt-aws.DeprovisioningLambdaScriptJob">DeprovisioningLambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.DeprovisioningScriptJob">DeprovisioningScriptJob</a>, <a href="#@cdklabs/sbt-aws.LambdaScriptJob">LambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.ProvisioningLambdaScriptJob">ProvisioningLambdaScriptJob</a>, <a href="#@cdklabs/sbt-aws.ProvisioningScriptJob">ProvisioningScriptJob</a>, <a href="#@cdklabs/sbt-aws.IScriptJob">IScriptJob</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@cdklabs/sbt-aws.IScriptJob.property.eventTarget">eventTarget</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget</code> | The eventTarget to use when triggering this ScriptJob. |
+| <code><a href="#@cdklabs/sbt-aws.IScriptJob.property.incomingEvent">incomingEvent</a></code> | <code><a href="#@cdklabs/sbt-aws.DetailType">DetailType</a></code> | The incoming event DetailType that triggers this job. |
+
+---
+
+##### `eventTarget`<sup>Required</sup> <a name="eventTarget" id="@cdklabs/sbt-aws.IScriptJob.property.eventTarget"></a>
+
+```typescript
+public readonly eventTarget: IRuleTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+The eventTarget to use when triggering this ScriptJob.
+
+---
+
+##### `incomingEvent`<sup>Required</sup> <a name="incomingEvent" id="@cdklabs/sbt-aws.IScriptJob.property.incomingEvent"></a>
+
+```typescript
+public readonly incomingEvent: DetailType;
+```
+
+- *Type:* <a href="#@cdklabs/sbt-aws.DetailType">DetailType</a>
+
+The incoming event DetailType that triggers this job.
 
 ---
 

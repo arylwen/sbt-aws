@@ -32,6 +32,41 @@ Jump To:
 
 SBT is built on top of the AWS Cloud Development Kit (CDK). It offers a number of higher-order constructs (L2, L2.5 and L3) to short-circuit the time required to build SaaS applications. Specifically, SBT attempts to codify several control plane and application plane concepts into reusable components, promoting reuse and reducing boilerplate code.
 
+## Getting Started on Localstack
+
+1. Prerequisistes
+
+* docker
+* nodejs
+
+2. Clone this repo
+
+* git clone https://github.com/arylwen/sbt-aws.git
+
+3. Start the localstck container
+
+* cd sbt-aws/docker/pro-ephemeral-neptune
+* cp .env-template .env
+* replace LOCALSTACK_AUTH_TOKEN with your localstack token
+* docker compose up
+
+4. Install tools
+
+* npm install -g aws-cdk
+* npm install -g aws-cdk-local
+
+5. Build and run
+
+* cd sbt-aws
+* export AWS_DEFAULT_REGION=us-east-1
+* export AWS_SECRET_ACCESS_KEY=test
+* export AWS_ACCESS_KEY_ID=test
+* npm install
+* npm run build
+* cdklocal bootstrap aws://000000000000/us-east-1
+* cdklocal -v deploy --app='./lib/core-app-plane/lambda.integ.default.js'
+* CDK_PARAM_SYSTEM_ADMIN_EMAIL="test@example.com" npx cdklocal -v deploy --app='./lib/control-plane/integ.default.js'
+
 ## Getting Started
 
 For a detailed walkthrough, see the [tutorial](https://github.com/awslabs/sbt-aws/blob/main/docs/public/README.md#tutorial) in the [developer guide](https://github.com/awslabs/sbt-aws/blob/main/docs/public/README.md).

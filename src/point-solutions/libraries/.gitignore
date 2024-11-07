@@ -38,6 +38,8 @@ __pycache__/
 .idea
 .vscode
 cdk.out
+.env
+docker-volume
 /test-reports/
 junit.xml
 /coverage/

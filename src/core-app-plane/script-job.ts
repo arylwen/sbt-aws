@@ -118,10 +118,23 @@ export interface ScriptJobProps {
   readonly eventManager: IEventManager;
 }
 
+export interface IScriptJob {
+  /**
+   * The eventTarget to use when triggering this ScriptJob.
+   * @attribute
+   */
+  eventTarget: IRuleTarget;
+
+  /**
+   * The incoming event DetailType that triggers this job.
+   */
+  incomingEvent: DetailType;
+}
+
 /**
  * Provides a ScriptJob to execute arbitrary bash code.
  */
-export class ScriptJob extends Construct {
+export class CodeBuildScriptJob extends Construct implements IScriptJob {
   /**
    * The codebuildProject used to implement this ScriptJob.
    * @attribute
@@ -138,7 +151,7 @@ export class ScriptJob extends Construct {
    * The eventTarget to use when triggering this ScriptJob.
    * @attribute
    */
-  public readonly eventTarget: IRuleTarget;
+  public eventTarget: IRuleTarget;
 
   /**
    * The environment variables to export into the outgoing event once the ScriptJob has finished.
@@ -149,7 +162,7 @@ export class ScriptJob extends Construct {
   /**
    * The incoming event DetailType that triggers this job.
    */
-  readonly incomingEvent: DetailType;
+  incomingEvent: DetailType;
 
   constructor(scope: Construct, id: string, props: ScriptJobProps) {
     super(scope, id);
